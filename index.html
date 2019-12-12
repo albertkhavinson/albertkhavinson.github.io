@@ -13,6 +13,7 @@
     <body>
         <div id="header">
             <h2>Sandblast Mobile ONP Demo Page</h2>
+            <h3><span id="onp_status_text">ONP status</span>&nbsp;<img id="onp_status_img" width="16px" height="16px" src=""></h3>
             <a target="_blank" href="resource/SBM - ONP Threats Menu - Expected Behavior v 1.2.pdf" download>Demo Guide</a>
         </div>
         <div id="page-container">
@@ -33,6 +34,23 @@
                 Partner/distributer shell use this tool at their own risk and shell not sell or distribute it without prior written authorization of Check Point.
             </div>
         </div>
+
+        <script>
+            var onp_running = false;
+        </script>
+        <script type="text/javascript" src="http://sandblast-protect.locsec.net/api/urlr/onp_config"></script>
+
+        <script>
+            if (onp_running) {
+                document.getElementById("onp_status_img").src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M/wHwAEBgIApD5fRAAAAABJRU5ErkJggg==';
+                document.getElementById("onp_status_text").textContent = "ONP is ON";
+            } else {
+                document.getElementById("onp_status_img").src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==';
+                document.getElementById("onp_status_text").textContent = "ONP is OFF";
+            }
+        </script>
+
+
         <script>
             init([
                     {

